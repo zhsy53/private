@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.pv.autoconfigure.token.TokenAutoConfiguration,\
+com.pv.autoconfigure.web.exception.ExceptionHandlerAutoConfiguration,\
+com.pv.autoconfigure.web.json.JacksonAutoConfiguration,\
+com.pv.autoconfigure.web.converter.ConverterAutoConfiguration
