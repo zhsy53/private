@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  nexus:
+    image: sonatype/nexus3
+    volumes:
+      - /root/nexus:/nexus-data
+    ports:
+      - "18081:8081"
+    deploy:
+      restart_policy:
+        delay: 5s
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G

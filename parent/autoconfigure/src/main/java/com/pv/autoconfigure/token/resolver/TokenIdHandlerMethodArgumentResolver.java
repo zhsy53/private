@@ -5,6 +5,7 @@ import com.pv.autoconfigure.token.service.TokenService;
 import com.pv.commons.exception.TokenException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.HttpHeaders;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -26,7 +27,7 @@ public class TokenIdHandlerMethodArgumentResolver implements HandlerMethodArgume
 
     @Override
     public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer, NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) {
-        return Optional.ofNullable(webRequest.getHeader(UserId.class.getSimpleName()))
+        return Optional.ofNullable(webRequest.getHeader(HttpHeaders.AUTHORIZATION))
                 .filter(StringUtils::hasText)
                 .map(tokenService::extractToken)
                 .map(Long::parseLong)
