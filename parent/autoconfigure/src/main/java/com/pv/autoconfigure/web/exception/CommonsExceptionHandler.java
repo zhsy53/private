@@ -37,7 +37,7 @@ class CommonsExceptionHandler {
         return ErrorResult.of(this.getMessageFromMap(ValidatorUtils.fromMethodArgumentNotValidException(e)));
     }
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler({TokenException.class})
     ErrorResult handle(TokenException e) {
         log.error(e.getMessage(), e);
