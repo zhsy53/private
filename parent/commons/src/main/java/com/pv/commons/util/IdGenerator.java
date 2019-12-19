@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import static java.util.Optional.ofNullable;
 
 public class IdGenerator {
-    private static final long BEGIN_EPOCH = TimeUtils.toMillis(LocalDateTime.of(2019, 12, 1, 0, 0));
+    private static final long BEGIN_EPOCH = TimeUtils.toMillis(LocalDateTime.of(2020, 1, 1, 0, 0));
 
     private static final int DATA_CENTER_ID_BITS = 5;
     private static final long MAX_DATA_CENTER_ID = maxPositiveNumberByBits(DATA_CENTER_ID_BITS);

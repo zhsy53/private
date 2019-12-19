@@ -1,30 +1,31 @@
 package com.pv.autoconfigure.web.exception.domain;
 
-import com.pv.commons.domain.Language;
+import com.pv.commons.domain.CodeAble;
+import com.pv.commons.domain.CodeAndMessageAble;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.Accessors;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public final class ErrorResult extends DefaultInternationalizedMessageHolder {
-    @NotNull
-    private final Language language;
+@Accessors(fluent = true)
+@Getter
+@RequiredArgsConstructor(staticName = "of")
+public class ErrorResult implements CodeAndMessageAble {
+    @NotBlank
+    private final String code;
+    @Nullable
+    private final String message;
 
-    private ErrorResult(@NotBlank String message, @NotNull Language language) {
-        super(message);
-        this.language = language;
+    @NotNull
+    public static ErrorResult fromException(@NotNull Exception e) {
+        return of(CodeAble.extractFromException(e), e.getMessage());
     }
 
     @NotNull
-    public static ErrorResult of(@NotBlank String message, @NotNull Language language) {
-        return new ErrorResult(message, language);
-    }
-
-    @NotNull
-    public static ErrorResult of(@NotBlank String message) {
-        return of(message, Language.DEFAULT);
-    }
-
-    public @NotBlank String display() {
-        return this.display(language);
+    public static ErrorResult fromException(@NotNull Exception e, @NotNull String message) {
+        return of(CodeAble.extractFromException(e), message);
     }
 }

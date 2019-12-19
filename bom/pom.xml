@@ -33,17 +33,17 @@
         <persistence.version>2.2</persistence.version>
         <jms.version>2.0.1</jms.version>
 
+        <!--spring-->
         <!--spring not used.-->
-        <spring.version>5.2.1.RELEASE</spring.version>
-        <!--2.2.1.RELEASE not used.for compatible-->
-        <spring.boot.version>2.1.9.RELEASE</spring.boot.version>
-        <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
+        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
 
         <!--data-->
         <mysql.version>8.0.18</mysql.version>
         <hikari.version>3.4.1</hikari.version>
         <jooq.version>3.12.3</jooq.version>
-        <hibernate.version>5.4.9.Final</hibernate.version>
+        <hibernate.version>5.4.10.Final</hibernate.version>
         <hibernate.validator.version>6.1.0.Final</hibernate.validator.version>
 
         <!--test-->

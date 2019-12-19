@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <nexus-address>192.168.0.8:18081</nexus-address>
+        <nexus-address>http://47.104.84.63:8081</nexus-address>
 
         <!--project-->
         <!--<maven.compiler.source>11</maven.compiler.source>-->
@@ -33,7 +33,7 @@
     <repositories>
         <repository>
             <id>nexus</id>
-            <url>http://${nexus-address}/repository/maven-public/</url>
+            <url>${nexus-address}/repository/maven-public/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -43,7 +43,7 @@
     <pluginRepositories>
         <pluginRepository>
             <id>nexus</id>
-            <url>http://${nexus-address}/repository/maven-public/</url>
+            <url>${nexus-address}/repository/maven-public/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -53,12 +53,12 @@
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
-            <url>http://${nexus-address}/repository/maven-releases/</url>
+            <url>${nexus-address}/repository/maven-releases/</url>
         </repository>
 
         <snapshotRepository>
             <id>nexus-snapshots</id>
-            <url>http://${nexus-address}/repository/maven-snapshots/</url>
+            <url>${nexus-address}/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 

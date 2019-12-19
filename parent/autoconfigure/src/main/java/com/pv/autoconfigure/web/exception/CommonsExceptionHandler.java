@@ -2,7 +2,6 @@ package com.pv.autoconfigure.web.exception;
 
 import com.pv.autoconfigure.web.exception.domain.ErrorResult;
 import com.pv.autoconfigure.web.exception.util.ValidatorUtils;
-import com.pv.commons.exception.TokenException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -26,7 +25,7 @@ class CommonsExceptionHandler {
     ErrorResult handle(ConstraintViolationException e) {
         log.error(e.getMessage(), e);
 
-        return ErrorResult.of(this.getMessageFromMap(ValidatorUtils.fromConstraintViolations(e.getConstraintViolations())));
+        return ErrorResult.fromException(e, this.getMessageFromMap(ValidatorUtils.fromConstraintViolations(e.getConstraintViolations())));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -34,15 +33,7 @@ class CommonsExceptionHandler {
     ErrorResult handle(MethodArgumentNotValidException e) {
         log.error(e.getMessage(), e);
 
-        return ErrorResult.of(this.getMessageFromMap(ValidatorUtils.fromMethodArgumentNotValidException(e)));
-    }
-
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler({TokenException.class})
-    ErrorResult handle(TokenException e) {
-        log.error(e.getMessage(), e);
-
-        return ErrorResult.of(e.getMessage());
+        return ErrorResult.fromException(e, this.getMessageFromMap(ValidatorUtils.fromMethodArgumentNotValidException(e)));
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -50,7 +41,7 @@ class CommonsExceptionHandler {
     ErrorResult handle(Exception e) {
         log.error(e.getMessage(), e);
 
-        return ErrorResult.of(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+        return ErrorResult.of(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), null);
     }
 
     @NotBlank

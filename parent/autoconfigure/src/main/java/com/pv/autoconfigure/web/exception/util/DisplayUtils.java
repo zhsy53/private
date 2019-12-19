@@ -20,7 +20,7 @@ public abstract class DisplayUtils {
     private static final String FILE_PATH_TEMPLATE = "locale/%s.properties";
 
     @NotBlank
-    public static String display(@NotNull Language language, @NotBlank String message) {
+    public static String display(@NotNull Language language, @NotBlank String key) {
         Properties properties = new Properties();
 
         String file = format(FILE_PATH_TEMPLATE, language.toString().toLowerCase());
@@ -29,13 +29,13 @@ public abstract class DisplayUtils {
             PropertiesLoaderUtils.fillProperties(properties, new EncodedResource(new ClassPathResource(file), UTF_8));
         } catch (IOException e) {
             log.error("load i18n resource {} error.", file);
-            return message;
+            return key;
         }
 
-        var value = properties.get(message);
+        var value = properties.get(key);
 
         log.debug("display message => {}", value);
 
-        return Optional.ofNullable(value).map(Object::toString).orElse(message);
+        return Optional.ofNullable(value).map(Object::toString).orElse(key);
     }
 }

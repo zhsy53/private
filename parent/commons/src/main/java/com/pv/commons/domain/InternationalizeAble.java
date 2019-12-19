@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @FunctionalInterface
-public interface Internationalizable {
+public interface InternationalizeAble {
     @NotBlank String display(@NotNull Language language);
 
     @NotBlank

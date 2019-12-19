@@ -34,7 +34,7 @@ class JacksonAutoConfiguration {
         return new Jdk8Module();
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @Bean
     SimpleModule localDateTimeModule(List<StdSerializer> serializers, List<StdDeserializer> deserializers) {
         serializers.forEach(serializer -> log.debug(serializer.getClass().getName()));
@@ -67,10 +67,5 @@ class JacksonAutoConfiguration {
     @Bean
     TrimStringDeserializer trimStringDeserializer() {
         return new TrimStringDeserializer();
-    }
-
-    @Bean
-    ErrorResultSerializer errorResultSerializer() {
-        return new ErrorResultSerializer();
     }
 }
