@@ -7,7 +7,7 @@
     <parent>
         <artifactId>starters</artifactId>
         <groupId>com.zch</groupId>
-        <version>1.0</version>
+        <version>1.1</version>
     </parent>
 
     <artifactId>starter-token</artifactId>

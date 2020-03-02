@@ -19,3 +19,4 @@ mvn deploy -DaltDeploymentRepository="nexus-releases::default::http://47.104.84.
 
 
 ## version update
+mvn versions:set -DnewVersion=<...>

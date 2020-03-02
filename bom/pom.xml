@@ -6,7 +6,7 @@
 
     <groupId>com.zch</groupId>
     <artifactId>bom</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -56,6 +56,11 @@
 
         <kaptcha.version>2.3.2</kaptcha.version>
         <jwt.version>0.9.1</jwt.version>
+
+        <!--querydsl-->
+        <query.dsl.version>4.2.2</query.dsl.version>
+        <dozer.version>5.5.1</dozer.version>
+        <dozer.jdk.version>1.0.6</dozer.jdk.version>
     </properties>
 
     <dependencyManagement>
@@ -233,6 +238,23 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jwt.version}</version>
+            </dependency>
+
+            <!---->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${query.dsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.craftsman</groupId>
+                <artifactId>dozer-jdk8-support</artifactId>
+                <version>${dozer.jdk.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

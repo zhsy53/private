@@ -1,6 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.zch.autoconfigure.token.TokenAutoConfiguration,\
-ExceptionHandlerAutoConfiguration,\
+com.zch.autoconfigure.exception.ExceptionHandlerAutoConfiguration,\
 com.zch.autoconfigure.json.JacksonAutoConfiguration,\
 com.zch.autoconfigure.converter.ConverterAutoConfiguration,\
 com.zch.autoconfigure.mq.MqAutoConfiguration
