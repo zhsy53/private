@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.private</groupId>
-        <artifactId>env</artifactId>
+        <groupId>com.zch</groupId>
+        <artifactId>base</artifactId>
         <version>1.0</version>
     </parent>
 
@@ -17,22 +17,22 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.private</groupId>
+                <groupId>com.zch</groupId>
                 <artifactId>commons</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>com.private</groupId>
+                <groupId>com.zch</groupId>
                 <artifactId>persistence</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>com.private</groupId>
+                <groupId>com.zch</groupId>
                 <artifactId>starter-web</artifactId>
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>com.private</groupId>
+                <groupId>com.zch</groupId>
                 <artifactId>starter-token</artifactId>
                 <version>1.0</version>
             </dependency>

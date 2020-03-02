@@ -16,3 +16,6 @@ mvn deploy -DaltDeploymentRepository="nexus-releases::default::http://47.104.84.
 
 ## nexus proxy
 > https://maven.aliyun.com/repository/central
+
+
+## version update

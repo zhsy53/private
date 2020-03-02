@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.private</groupId>
+        <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
         <version>1.0</version>
     </parent>
@@ -17,7 +17,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.private</groupId>
+                <groupId>com.zch</groupId>
                 <artifactId>bom</artifactId>
                 <version>1.0</version>
                 <type>pom</type>

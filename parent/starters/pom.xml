@@ -6,13 +6,14 @@
 
     <parent>
         <artifactId>parent</artifactId>
-        <groupId>com.private</groupId>
+        <groupId>com.zch</groupId>
         <version>1.0</version>
     </parent>
 
     <modules>
         <module>starter-token</module>
         <module>starter-web</module>
+        <module>starter-mq</module>
     </modules>
 
     <artifactId>starters</artifactId>
@@ -20,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.private</groupId>
+            <groupId>com.zch</groupId>
             <artifactId>autoconfigure</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
