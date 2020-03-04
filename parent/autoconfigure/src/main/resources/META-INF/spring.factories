@@ -3,4 +3,5 @@ com.zch.autoconfigure.token.TokenAutoConfiguration,\
 com.zch.autoconfigure.exception.ExceptionHandlerAutoConfiguration,\
 com.zch.autoconfigure.json.JacksonAutoConfiguration,\
 com.zch.autoconfigure.converter.ConverterAutoConfiguration,\
-com.zch.autoconfigure.mq.MqAutoConfiguration
+com.zch.autoconfigure.mq.MqAutoConfiguration,\
+com.zch.autoconfigure.dozer.DozerAutoConfiguration

@@ -7,13 +7,14 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>com.zch</groupId>
-        <version>1.1</version>
+        <version>1.2</version>
     </parent>
 
     <modules>
         <module>starter-token</module>
         <module>starter-web</module>
         <module>starter-mq</module>
+        <module>starter-dozer</module>
     </modules>
 
     <artifactId>starters</artifactId>

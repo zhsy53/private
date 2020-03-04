@@ -1,6 +1,6 @@
 # internal
 
-## env:项目环境设置
+## env:项目环境设置(一般不需要改变)
 项目编码,jdk版本
 常用plugin
 repositories/pluginRepositories

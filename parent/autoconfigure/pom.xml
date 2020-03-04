@@ -7,7 +7,7 @@
     <parent>
         <artifactId>parent</artifactId>
         <groupId>com.zch</groupId>
-        <version>1.1</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>autoconfigure</artifactId>
@@ -50,6 +50,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.craftsman</groupId>
+            <artifactId>dozer-jdk8-support</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

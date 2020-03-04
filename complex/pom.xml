@@ -6,13 +6,18 @@
 
     <parent>
         <groupId>com.zch</groupId>
-        <artifactId>env</artifactId>
-        <version>1.0</version>
+        <artifactId>base</artifactId>
+        <version>1.2</version>
     </parent>
 
-    <artifactId>base</artifactId>
-    <version>1.2</version>
+    <artifactId>complex</artifactId>
     <packaging>pom</packaging>
+    <version>1.2</version>
+
+    <modules>
+        <module>complex-query-dsl</module>
+        <module>complex-swagger</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>

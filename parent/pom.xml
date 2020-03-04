@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>base</artifactId>
-        <version>1.0</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>parent</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>pom</packaging>
 
     <modules>
