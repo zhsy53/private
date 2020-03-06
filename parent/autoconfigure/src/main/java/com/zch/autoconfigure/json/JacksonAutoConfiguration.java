@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.zch.commons.domain.PageData;
 import com.zch.commons.util.TimeUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -62,6 +63,12 @@ class JacksonAutoConfiguration {
     @Bean
     PageSerializer pageSerializer() {
         return new PageSerializer();
+    }
+
+    @ConditionalOnClass(PageData.class)
+    @Bean
+    PageDataSerializer pageDataSerializer() {
+        return new PageDataSerializer();
     }
 
     @Bean
