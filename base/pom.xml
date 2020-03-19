@@ -18,7 +18,14 @@
         <dependencies>
             <dependency>
                 <groupId>com.zch</groupId>
-                <artifactId>bom</artifactId>
+                <artifactId>inner</artifactId>
+                <version>1.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>outer</artifactId>
                 <version>1.4</version>
                 <type>pom</type>
                 <scope>import</scope>

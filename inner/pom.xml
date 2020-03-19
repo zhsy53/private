@@ -6,20 +6,28 @@
 
     <parent>
         <groupId>com.zch</groupId>
-        <artifactId>base</artifactId>
+        <artifactId>env</artifactId>
         <version>1.4</version>
     </parent>
 
-    <artifactId>dependencies</artifactId>
+    <artifactId>inner</artifactId>
     <version>1.4</version>
     <packaging>pom</packaging>
 
     <properties>
-        <private.version>1.4</private.version>
+        <private.version>${project.version}</private.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--complex-->
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>complex-swagger</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+
+            <!--basic-->
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>commons</artifactId>
@@ -28,13 +36,6 @@
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>persistence</artifactId>
-                <version>${private.version}</version>
-            </dependency>
-
-            <!--complex-->
-            <dependency>
-                <groupId>com.zch</groupId>
-                <artifactId>complex-swagger</artifactId>
                 <version>${private.version}</version>
             </dependency>
 
