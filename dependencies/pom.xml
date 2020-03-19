@@ -7,58 +7,67 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>base</artifactId>
-        <version>1.2</version>
+        <version>1.4</version>
     </parent>
 
     <artifactId>dependencies</artifactId>
-    <version>1.2</version>
+    <version>1.4</version>
     <packaging>pom</packaging>
+
+    <properties>
+        <private.version>1.4</private.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>commons</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>persistence</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
 
             <!--complex-->
             <dependency>
                 <groupId>com.zch</groupId>
-                <artifactId>complex-query-dsl</artifactId>
-                <version>1.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zch</groupId>
                 <artifactId>complex-swagger</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
 
             <!--starter-->
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-web</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-token</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-mq</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-dozer</artifactId>
-                <version>1.2</version>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-dozer</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-querydsl</artifactId>
+                <version>${private.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -16,6 +16,9 @@ public class ZchProperties {
     @NotNull
     private Enabled enabled = new Enabled();
 
+    @NotNull
+    private Log log = new Log();
+
     @Data
     public static class Enabled {
         private boolean jackson = true;
@@ -35,5 +38,10 @@ public class ZchProperties {
             @Positive
             private long expirationMinutes = 60 * 24 * 30;
         }
+    }
+
+    @Data
+    public static class Log {
+        private boolean debug = false;
     }
 }

@@ -1,8 +1,11 @@
 package com.zch.autoconfigure.exception;
 
+import com.zch.autoconfigure.ZchProperties;
 import com.zch.autoconfigure.exception.domain.ErrorResult;
 import com.zch.autoconfigure.exception.util.ValidatorUtils;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -18,8 +21,12 @@ import java.util.Map;
 
 @Order(Ordered.HIGHEST_PRECEDENCE + 1)
 @RestControllerAdvice
+@EnableConfigurationProperties(ZchProperties.class)
 @Log4j2
+@RequiredArgsConstructor
 class CommonsExceptionHandler {
+    private final ZchProperties zchProperties;
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
     ErrorResult handle(ConstraintViolationException e) {
@@ -41,7 +48,9 @@ class CommonsExceptionHandler {
     ErrorResult handle(Exception e) {
         log.error(e.getMessage(), e);
 
-        return ErrorResult.of(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), null);
+        boolean debug = zchProperties.getLog().isDebug();
+
+        return ErrorResult.of(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), debug ? e.getMessage() : null);
     }
 
     @NotBlank
