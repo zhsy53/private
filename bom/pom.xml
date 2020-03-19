@@ -6,7 +6,7 @@
 
     <groupId>com.zch</groupId>
     <artifactId>bom</artifactId>
-    <version>1.2</version>
+    <version>1.4</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -66,6 +66,9 @@
         <swagger.version>2.9.2</swagger.version>
 
         <xx.job.version>2.1.2</xx.job.version>
+
+        <!--ali-->
+        <ali.sdk.core.version>4.0.3</ali.sdk.core.version>
     </properties>
 
     <dependencyManagement>
@@ -287,6 +290,12 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xx.job.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${ali.sdk.core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
