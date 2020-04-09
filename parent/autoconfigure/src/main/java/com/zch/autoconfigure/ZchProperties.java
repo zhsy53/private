@@ -3,6 +3,7 @@ package com.zch.autoconfigure;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -14,17 +15,16 @@ public class ZchProperties {
     private Token token = new Token();
 
     @NotNull
-    private Enabled enabled = new Enabled();
-
-    @NotNull
     private Log log = new Log();
 
-    @Data
-    public static class Enabled {
-        private boolean jackson = true;
-        private boolean convert = true;
-        private boolean exception = true;
-    }
+    @NotNull
+    private Cache cache = new Cache();
+
+    @NotNull
+    private Swagger swagger = new Swagger();
+
+    @NotNull
+    private Enabled enabled = new Enabled();
 
     @Data
     public static class Token {
@@ -43,5 +43,29 @@ public class ZchProperties {
     @Data
     public static class Log {
         private boolean debug = false;
+    }
+
+    @Data
+    public static class Cache {
+        @Positive
+        private long expirationMinutes = 60 * 12;
+    }
+
+    @Data
+    public static class Swagger {
+        private boolean enabled;
+        @NotBlank
+        private String title;
+        @Nullable
+        private String description;
+        @NotBlank
+        private String version = "1.0";
+    }
+
+    @Data
+    public static class Enabled {
+        private boolean jackson = true;
+        private boolean convert = true;
+        private boolean exception = true;
     }
 }

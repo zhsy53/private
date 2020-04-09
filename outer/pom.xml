@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
     </parent>
 
     <artifactId>outer</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -51,6 +51,7 @@
         <jooq.version>3.12.3</jooq.version>
         <hibernate.version>5.4.10.Final</hibernate.version>
         <hibernate.validator.version>6.1.0.Final</hibernate.validator.version>
+        <query.dsl.version>4.2.2</query.dsl.version>
 
         <!--test-->
         <junit.version>4.12</junit.version>
@@ -63,8 +64,6 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <jwt.version>0.9.1</jwt.version>
 
-        <query.dsl.version>4.2.2</query.dsl.version>
-
         <dozer.version>5.5.1</dozer.version>
         <dozer.jdk.version>1.0.6</dozer.jdk.version>
 
@@ -74,6 +73,7 @@
 
         <!--ali-->
         <ali.sdk.core.version>4.0.3</ali.sdk.core.version>
+        <ali.sdk.oss.version>3.8.0</ali.sdk.oss.version>
     </properties>
 
     <dependencyManagement>
@@ -162,6 +162,7 @@
                 <version>${jms.version}</version>
             </dependency>
 
+            <!--spring-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -203,7 +204,7 @@
                 <artifactId>jooq-codegen</artifactId>
                 <version>${jooq.version}</version>
             </dependency>
-
+            <!--data-hibernate-->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
@@ -219,6 +220,17 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate.validator.version}</version>
+            </dependency>
+            <!--data-querydsl-->
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-jpa</artifactId>
+                <version>${query.dsl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.querydsl</groupId>
+                <artifactId>querydsl-apt</artifactId>
+                <version>${query.dsl.version}</version>
             </dependency>
 
             <!--test-->
@@ -259,16 +271,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.querydsl</groupId>
-                <artifactId>querydsl-jpa</artifactId>
-                <version>${query.dsl.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.querydsl</groupId>
-                <artifactId>querydsl-apt</artifactId>
-                <version>${query.dsl.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>net.sf.dozer</groupId>
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
@@ -301,6 +303,12 @@
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-core</artifactId>
                 <version>${ali.sdk.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${ali.sdk.oss.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

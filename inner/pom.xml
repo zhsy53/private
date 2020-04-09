@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
     </parent>
 
     <artifactId>inner</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -20,13 +20,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--complex-->
-            <dependency>
-                <groupId>com.zch</groupId>
-                <artifactId>complex-swagger</artifactId>
-                <version>${private.version}</version>
-            </dependency>
-
             <!--basic-->
             <dependency>
                 <groupId>com.zch</groupId>
@@ -42,12 +35,7 @@
             <!--starter-->
             <dependency>
                 <groupId>com.zch</groupId>
-                <artifactId>starter-web</artifactId>
-                <version>${private.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zch</groupId>
-                <artifactId>starter-token</artifactId>
+                <artifactId>starter-dozer</artifactId>
                 <version>${private.version}</version>
             </dependency>
             <dependency>
@@ -57,17 +45,27 @@
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
-                <artifactId>starter-dozer</artifactId>
-                <version>${private.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zch</groupId>
-                <artifactId>starter-dozer</artifactId>
-                <version>${private.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zch</groupId>
                 <artifactId>starter-querydsl</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-redis</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-swagger</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-token</artifactId>
+                <version>${private.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zch</groupId>
+                <artifactId>starter-web</artifactId>
                 <version>${private.version}</version>
             </dependency>
         </dependencies>

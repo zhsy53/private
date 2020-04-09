@@ -6,15 +6,12 @@
 
     <groupId>com.zch</groupId>
     <artifactId>env</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>pom</packaging>
 
     <properties>
         <nexus-address>http://47.104.84.63:8081</nexus-address>
 
-        <!--project-->
-        <!--<maven.compiler.source>11</maven.compiler.source>-->
-        <!--<maven.compiler.target>11</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -77,7 +74,7 @@
                     <version>${maven-compiler-plugin}</version>
                     <configuration>
                         <parameters>true</parameters>
-                        <!--or setting properties with maven.compiler.source/target-->
+                        <!--or setting properties with <maven.compiler.source> && <maven.compiler.target>-->
                         <source>11</source>
                         <target>11</target>
                     </configuration>

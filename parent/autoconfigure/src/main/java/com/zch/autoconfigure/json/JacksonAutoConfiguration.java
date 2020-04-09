@@ -12,6 +12,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.zch.commons.domain.PageData;
 import com.zch.commons.util.TimeUtils;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -25,9 +26,10 @@ import java.util.List;
 
 @Log4j2
 @ConditionalOnProperty(prefix = "zch.enabled", name = "jackson", havingValue = "true", matchIfMissing = true)
+@AutoConfigureBefore(org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration.class)
 @ConditionalOnClass(ObjectMapper.class)
 @Configuration
-class JacksonAutoConfiguration {
+public class JacksonAutoConfiguration {
     @ConditionalOnMissingBean
     @ConditionalOnClass(Jdk8Module.class)
     @Bean
@@ -37,9 +39,10 @@ class JacksonAutoConfiguration {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Bean
-    SimpleModule localDateTimeModule(List<StdSerializer> serializers, List<StdDeserializer> deserializers) {
-        serializers.forEach(serializer -> log.debug(serializer.getClass().getName()));
-        deserializers.forEach(deserializer -> log.debug(deserializer.getClass().getName()));
+    SimpleModule module(List<StdSerializer> serializers, List<StdDeserializer> deserializers) {
+        log.info("Inject SimpleModule:");
+        serializers.forEach(serializer -> log.info(serializer.getClass().getSimpleName()));
+        deserializers.forEach(deserializer -> log.info(deserializer.getClass().getSimpleName()));
 
         SimpleModule module = new SimpleModule();
 
