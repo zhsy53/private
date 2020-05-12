@@ -5,10 +5,10 @@ import javax.validation.constraints.NotNull;
 
 @FunctionalInterface
 public interface InternationalizeAble {
-    @NotBlank String display(@NotNull Language language);
-
     @NotBlank
     default String display(@NotBlank String language) {
         return this.display(Language.from(language));
     }
+
+    @NotBlank String display(@NotNull Language language);
 }

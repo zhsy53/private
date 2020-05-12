@@ -26,19 +26,6 @@ import static org.springframework.util.StringUtils.arrayToDelimitedString;
 @ConditionalOnBean({RedisConnectionFactory.class, RedisCacheConfiguration.class})
 @Configuration
 class CacheAutoConfiguration {
-    @Primary
-    @Bean
-    KeyGenerator customKeyGenerator() {
-        return new KeyGenerator() {
-            private static final String DELIMITER = "_";
-
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                return target.getClass().getSimpleName() + DELIMITER + method.getName() + DELIMITER + arrayToDelimitedString(params, DELIMITER);
-            }
-        };
-    }
-
     @Bean
     CachingConfigurer cachingConfigurerSupport(RedisConnectionFactory factory, RedisCacheConfiguration configuration) {
         return new CachingConfigurerSupport() {
@@ -52,6 +39,19 @@ class CacheAutoConfiguration {
             @Override
             public KeyGenerator keyGenerator() {
                 return customKeyGenerator();
+            }
+        };
+    }
+
+    @Primary
+    @Bean
+    KeyGenerator customKeyGenerator() {
+        return new KeyGenerator() {
+            private static final String DELIMITER = "_";
+
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                return target.getClass().getSimpleName() + DELIMITER + method.getName() + DELIMITER + arrayToDelimitedString(params, DELIMITER);
             }
         };
     }

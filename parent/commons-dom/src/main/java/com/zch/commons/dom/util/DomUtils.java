@@ -11,6 +11,11 @@ import static com.zch.commons.dom.util.BaseUtils.trimBeginAndEnd;
 import static java.util.stream.Collectors.toList;
 
 public interface DomUtils {
+    @NotNull
+    static List<@NotNull Node> listNeedToHandleChild(@NotNull Node node) {
+        return node.childNodes().stream().filter(DomUtils::isNeedToHandle).collect(toList());
+    }
+
     static boolean isNeedToHandle(@NotNull Node node) {
         return node instanceof Element || (node instanceof TextNode && isNeedToHandleAfterTrimText((TextNode) node));
     }
@@ -21,10 +26,5 @@ public interface DomUtils {
         node.text(text);
 
         return !text.isBlank();
-    }
-
-    @NotNull
-    static List<@NotNull Node> listNeedToHandleChild(@NotNull Node node) {
-        return node.childNodes().stream().filter(DomUtils::isNeedToHandle).collect(toList());
     }
 }

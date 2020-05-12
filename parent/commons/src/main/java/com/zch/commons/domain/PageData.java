@@ -1,7 +1,6 @@
 package com.zch.commons.domain;
 
 import lombok.Data;
-import lombok.NonNull;
 import org.springframework.data.domain.Page;
 
 import javax.validation.constraints.NotNull;
@@ -34,7 +33,7 @@ public class PageData<@NotNull T> {
         return of(page.getNumber(), page.getSize(), page.getTotalElements(), page.getContent());
     }
 
-    @NotNull <@NotNull R> PageData<@NonNull R> map(@NotNull Function<? super T, ? extends R> converter) {
+    public <@NotNull R> @NotNull PageData<@NotNull R> map(@NotNull Function<? super T, ? extends R> converter) {
         return of(page, size, count, content.stream().map(converter).collect(toList()));
     }
 }

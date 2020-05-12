@@ -11,13 +11,13 @@ public abstract class RandomUtils {
         return ThreadLocalRandom.current().nextLong(min, max + 1);
     }
 
-    public static int range(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
-
     @NotBlank
     public static String randomNumberString(@Positive int length) {
         assert length <= 10;
         return String.format("%0" + length + "d", (long) range(0, POWERS_OF_10[length] - 1));
+    }
+
+    public static int range(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 }

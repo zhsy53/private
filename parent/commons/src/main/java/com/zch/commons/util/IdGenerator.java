@@ -30,6 +30,10 @@ public class IdGenerator {
     private long lastSequence;
     private long lastTimestamp = -1L;
 
+    private IdGenerator(@Positive long dataCenterId, @Positive long workerId) {
+        this(dataCenterId, workerId, 0);
+    }
+
     private IdGenerator(@Positive long dataCenterId, @Positive long workerId, @Positive long lastSequence) {
         if (dataCenterId > MAX_DATA_CENTER_ID || dataCenterId < 0 || workerId > MAX_WORKER_ID || workerId < 0) {
             throw new IllegalArgumentException();
@@ -40,18 +44,14 @@ public class IdGenerator {
         this.lastSequence = lastSequence;
     }
 
-    private IdGenerator(@Positive long dataCenterId, @Positive long workerId) {
-        this(dataCenterId, workerId, 0);
-    }
-
-    public static IdGenerator of(@Positive long dataCenterId, @Positive long workerId) {
-        return new IdGenerator(dataCenterId, workerId);
-    }
-
     public static IdGenerator of() {
         long dataCenterId = ofNullable(System.getProperty(DATA_CENTER_ID)).map(String::trim).map(Long::parseLong).orElse(0L);
         long workerId = ofNullable(System.getProperty(WORKER_ID)).map(String::trim).map(Long::parseLong).orElse(0L);
         return IdGenerator.of(dataCenterId, workerId);
+    }
+
+    public static IdGenerator of(@Positive long dataCenterId, @Positive long workerId) {
+        return new IdGenerator(dataCenterId, workerId);
     }
 
     private static long maxPositiveNumberByBits(@Positive int bits) {
@@ -87,15 +87,15 @@ public class IdGenerator {
         this.lastTimestamp = timestamp;
     }
 
+    private long currentTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
     private long nextTimeMillis(long lastTimestamp) {
         long timestamp = this.currentTimeMillis();
         while (timestamp <= lastTimestamp) {
             timestamp = this.currentTimeMillis();
         }
         return timestamp;
-    }
-
-    private long currentTimeMillis() {
-        return System.currentTimeMillis();
     }
 }

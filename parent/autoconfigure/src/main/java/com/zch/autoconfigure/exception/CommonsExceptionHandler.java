@@ -35,6 +35,11 @@ class CommonsExceptionHandler {
         return ErrorResult.fromException(e, this.getMessageFromMap(ValidatorUtils.fromConstraintViolations(e.getConstraintViolations())));
     }
 
+    @NotBlank
+    private String getMessageFromMap(@NotEmpty Map<@NotBlank String, @NotBlank String> map) {
+        return map.entrySet().stream().findFirst().map(entry -> entry.getKey() + " " + entry.getValue()).orElseThrow();
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     ErrorResult handle(MethodArgumentNotValidException e) {
@@ -51,10 +56,5 @@ class CommonsExceptionHandler {
         boolean debug = zchProperties.getLog().isDebug();
 
         return ErrorResult.of(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), debug ? e.getMessage() : null);
-    }
-
-    @NotBlank
-    private String getMessageFromMap(@NotEmpty Map<@NotBlank String, @NotBlank String> map) {
-        return map.entrySet().stream().findFirst().map(entry -> entry.getKey() + " " + entry.getValue()).orElseThrow();
     }
 }
