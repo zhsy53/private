@@ -6,7 +6,7 @@
 
     <groupId>com.zch</groupId>
     <artifactId>env</artifactId>
-    <version>1.5</version>
+    <version>1.8</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -19,7 +19,7 @@
         <lombok-maven-plugin>1.18.10</lombok-maven-plugin>
         <maven-compiler-plugin>3.8.1</maven-compiler-plugin>
         <maven-source-plugin>3.1.0</maven-source-plugin>
-        <maven-surefire-plugin>3.0.0-M3</maven-surefire-plugin>
+        <maven-surefire-plugin>3.0.0-M4</maven-surefire-plugin>
         <maven-assembly-plugin>3.1.1</maven-assembly-plugin>
         <maven-shade-plugin>3.2.1</maven-shade-plugin>
         <versions-maven-plugin>2.7</versions-maven-plugin>
@@ -98,7 +98,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin}</version>
                     <configuration>
-                        <skip>true</skip>
+                        <skipTests>true</skipTests>
                     </configuration>
                 </plugin>
 

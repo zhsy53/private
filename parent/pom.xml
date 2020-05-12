@@ -7,15 +7,16 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
-        <version>1.5</version>
+        <version>1.8</version>
     </parent>
 
     <artifactId>parent</artifactId>
-    <version>1.5</version>
+    <version>1.8</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>commons</module>
+        <module>commons-dom</module>
         <module>persistence</module>
 
         <module>autoconfigure</module>

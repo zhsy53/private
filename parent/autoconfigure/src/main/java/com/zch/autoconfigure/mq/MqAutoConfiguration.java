@@ -9,16 +9,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@AutoConfigureAfter(JacksonAutoConfiguration.class)
 @ConditionalOnClass(Message.class)
 @Configuration
 @Log4j2
 class MqAutoConfiguration {
-    //TODO
     @ConditionalOnClass(ObjectMapper.class)
     @Bean
     public MessageConverter messageConverter(ObjectMapper mapper) {
-        log.info("mapper => {}", mapper);
         return new Jackson2JsonMessageConverter(mapper);
     }
 }

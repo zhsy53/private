@@ -58,6 +58,8 @@ public class ZchProperties {
         private String title;
         @Nullable
         private String description;
+        @Nullable
+        private String path;
         @NotBlank
         private String version = "1.0";
     }

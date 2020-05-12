@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
-        <version>1.5</version>
+        <version>1.8</version>
     </parent>
 
     <artifactId>outer</artifactId>
-    <version>1.5</version>
+    <version>1.8</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -74,6 +74,9 @@
         <!--ali-->
         <ali.sdk.core.version>4.0.3</ali.sdk.core.version>
         <ali.sdk.oss.version>3.8.0</ali.sdk.oss.version>
+
+        <!--jsoup-->
+        <jsoup.version>1.13.1</jsoup.version>
     </properties>
 
     <dependencyManagement>
@@ -309,6 +312,12 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${ali.sdk.oss.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

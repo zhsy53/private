@@ -7,11 +7,9 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.EntityManager;
 
-@ConditionalOnClass(JPAQueryFactory.class)
+@ConditionalOnClass({JPAQueryFactory.class, EntityManager.class})
 @Configuration
 class QueryDSLAutoConfiguration {
-    //TODO
-    @ConditionalOnClass(EntityManager.class)
     @Bean
     JPAQueryFactory jpaQueryFactory(EntityManager manager) {
         return new JPAQueryFactory(manager);

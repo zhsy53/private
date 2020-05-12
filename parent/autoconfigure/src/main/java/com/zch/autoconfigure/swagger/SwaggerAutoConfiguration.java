@@ -4,11 +4,12 @@ import com.zch.autoconfigure.ZchProperties;
 import com.zch.autoconfigure.ZchProperties.Swagger;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
@@ -24,17 +25,16 @@ import java.util.List;
 import static java.util.Optional.ofNullable;
 import static springfox.documentation.spi.DocumentationType.SWAGGER_2;
 
+@ConditionalOnProperty(prefix = "zch.swagger", name = "enabled", havingValue = "true")
 @EnableSwagger2
 @EnableConfigurationProperties(ZchProperties.class)
 @ConditionalOnClass(Docket.class)
 @Configuration
 class SwaggerAutoConfiguration {
-    @Value("${spring.application.name:}")
-    private String path;
-
-//    @ConditionalOnProperty(prefix = "zch.swagger", name = "enabled", havingValue = "true")
     @Bean
-    Docket createRestApi(ZchProperties properties) {
+    Docket createRestApi(ZchProperties properties, Environment environment) {
+        var name = environment.getProperty("spring.application.name", "");
+
         var param = new ParameterBuilder()
                 .name(HttpHeaders.AUTHORIZATION)
                 .description("Token 填这里")
@@ -51,7 +51,7 @@ class SwaggerAutoConfiguration {
                 .build();
 
         return new Docket(SWAGGER_2)
-                .pathMapping(path)
+                .pathMapping(ofNullable(swagger.getPath()).orElse(name))
                 .apiInfo(info)
                 .enable(swagger.isEnabled())
                 .select()
