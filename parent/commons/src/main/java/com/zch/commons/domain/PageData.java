@@ -13,7 +13,7 @@ import java.util.function.Function;
 import static java.util.stream.Collectors.toList;
 
 @Data(staticConstructor = "of")
-public class PageData<@NotNull T> {
+public class PageData<T> {
     @PositiveOrZero
     private final int page;
     @Positive
@@ -21,19 +21,19 @@ public class PageData<@NotNull T> {
     @PositiveOrZero
     private final long count;
     @NotNull
-    private final Collection<@NotNull T> content;
+    private final Collection<T> content;
 
     @NotNull
-    public static <@NotNull T> PageData<@NotNull T> empty(@PositiveOrZero int page, @Positive int size, @PositiveOrZero long count) {
+    public static <T> PageData<T> empty(@PositiveOrZero int page, @Positive int size, @PositiveOrZero long count) {
         return PageData.of(page, size, count, List.of());
     }
 
     @NotNull
-    public static <@NotNull T> PageData<@NotNull T> from(@NotNull Page<@NotNull T> page) {
+    public static <T> PageData<T> from(@NotNull Page<T> page) {
         return of(page.getNumber(), page.getSize(), page.getTotalElements(), page.getContent());
     }
 
-    public <@NotNull R> @NotNull PageData<@NotNull R> map(@NotNull Function<? super T, ? extends R> converter) {
+    public <R> @NotNull PageData<R> map(@NotNull Function<? super T, ? extends R> converter) {
         return of(page, size, count, content.stream().map(converter).collect(toList()));
     }
 }
