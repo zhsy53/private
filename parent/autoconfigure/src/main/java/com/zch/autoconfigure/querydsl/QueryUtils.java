@@ -37,11 +37,9 @@ public interface QueryUtils {
         return predicates.toArray(new Predicate[0]);
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
     @NotNull
-    static OrderSpecifier<?> order(@NotNull EntityPathBase<?> entityPath, @Nullable String field, @Nullable Boolean desc) {
-        var path = listPathFromEntityPath(entityPath).stream().filter(p -> p.getMetadata().getName().equals(ofNullable(field).orElse(OrderData.DEFAULT_FIELD))).findAny().orElseThrow();
-        return new OrderSpecifier(ofNullable(desc).orElse(false) ? Order.DESC : Order.ASC, path);
+    static OrderSpecifier<?> order(@NotNull EntityPathBase<?> entityPath, @NotNull OrderRo ro) {
+        return order(entityPath, OrderData.from(ro));
     }
 
     @NotNull
@@ -49,9 +47,11 @@ public interface QueryUtils {
         return order(entityPath, ro.getField(), ro.isDesc());
     }
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
     @NotNull
-    static OrderSpecifier<?> order(@NotNull EntityPathBase<?> entityPath, @NotNull OrderRo ro) {
-        return order(entityPath, OrderData.from(ro));
+    static OrderSpecifier<?> order(@NotNull EntityPathBase<?> entityPath, @Nullable String field, @Nullable Boolean desc) {
+        var path = listPathFromEntityPath(entityPath).stream().filter(p -> p.getMetadata().getName().equals(ofNullable(field).orElse(OrderData.DEFAULT_FIELD))).findAny().orElseThrow();
+        return new OrderSpecifier(ofNullable(desc).orElse(false) ? Order.DESC : Order.ASC, path);
     }
 
     @SuppressWarnings("unchecked")

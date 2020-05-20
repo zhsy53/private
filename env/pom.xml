@@ -6,11 +6,13 @@
 
     <groupId>com.zch</groupId>
     <artifactId>env</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <packaging>pom</packaging>
+    <description>环境配置:encoding,repository,plugin</description>
 
     <properties>
-        <nexus-address>http://maven.zhchh.cn</nexus-address>
+        <!--        <nexus-address>http://maven.zhchh.cn</nexus-address>-->
+        <nexus-address>http://47.104.84.63:8081</nexus-address>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

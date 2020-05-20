@@ -1,18 +1,16 @@
 package com.zch.autoconfigure.jpush;
 
-import lombok.Data;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import cn.jiguang.common.ClientConfig;
+import cn.jpush.api.JPushClient;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 
-import javax.validation.constraints.NotBlank;
-
-@EnableAutoConfiguration
-@ConfigurationProperties(prefix = "jpush")
-@Data
-public class JpushConfiguration {
-    @NotBlank
-    private String masterSecret;
-    @NotBlank
-    private String appKey;
-    private boolean production;
+@EnableConfigurationProperties(JpushConfiguration.class)
+@ConditionalOnClass(JPushClient.class)
+public class JpushAutoConfiguration {
+    @Bean
+    JPushClient getClient(JpushConfiguration configuration) {
+        return new JPushClient(configuration.getMasterSecret(), configuration.getAppKey(), null, ClientConfig.getInstance());
+    }
 }

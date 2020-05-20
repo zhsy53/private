@@ -8,4 +8,5 @@ com.zch.autoconfigure.dozer.DozerAutoConfiguration,\
 com.zch.autoconfigure.querydsl.QueryDSLAutoConfiguration,\
 com.zch.autoconfigure.redis.RedisAutoConfiguration,\
 com.zch.autoconfigure.cache.CacheAutoConfiguration,\
-com.zch.autoconfigure.swagger.SwaggerAutoConfiguration
+com.zch.autoconfigure.swagger.SwaggerAutoConfiguration,\
+com.zch.autoconfigure.jpush.JpushAutoConfiguration

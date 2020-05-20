@@ -17,6 +17,11 @@ public abstract class LambdaUtils {
         };
     }
 
+    @SuppressWarnings("unchecked")
+    private static <E extends Throwable> void throwAsUnchecked(Exception exception) throws E {
+        throw (E) exception;
+    }
+
     public static <T, U, E extends Exception> BiConsumer<T, U> rethrowBiConsumer(_BiConsumer<T, U, E> biConsumer) throws E {
         return (t, u) -> {
             try {
@@ -47,11 +52,6 @@ public abstract class LambdaUtils {
                 return null;
             }
         };
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <E extends Throwable> void throwAsUnchecked(Exception exception) throws E {
-        throw (E) exception;
     }
 
     @FunctionalInterface
