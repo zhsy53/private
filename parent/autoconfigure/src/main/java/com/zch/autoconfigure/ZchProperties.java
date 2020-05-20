@@ -24,6 +24,9 @@ public class ZchProperties {
     private Swagger swagger = new Swagger();
 
     @NotNull
+    private JPush jPush = new JPush();
+
+    @NotNull
     private Enabled enabled = new Enabled();
 
     @Data
@@ -62,6 +65,15 @@ public class ZchProperties {
         private String path;
         @NotBlank
         private String version = "1.0";
+    }
+
+    @Data
+    public static class JPush {
+        @NotBlank
+        private String masterSecret;
+        @NotBlank
+        private String appKey;
+        private boolean production;
     }
 
     @Data
