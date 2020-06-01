@@ -13,7 +13,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
+import javax.validation.constraints.NotNull;
 
 @RequiredArgsConstructor
 public class TokenIdHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
@@ -27,10 +27,18 @@ public class TokenIdHandlerMethodArgumentResolver implements HandlerMethodArgume
 
     @Override
     public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer, NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) {
-        return Optional.ofNullable(webRequest.getHeader(HttpHeaders.AUTHORIZATION))
-                .filter(StringUtils::hasText)
-                .map(tokenService::extractToken)
-                .map(Long::parseLong)
-                .orElseThrow(() -> new TokenException("用户未登录"));
+        @NotNull UserId userId = parameter.getParameterAnnotation(UserId.class);
+        assert userId != null;
+
+        String header = webRequest.getHeader(HttpHeaders.AUTHORIZATION);
+        if (StringUtils.hasText(header)) {
+            return Long.parseLong(tokenService.extractToken(header));
+        }
+
+        if (userId.required()) {
+            throw new TokenException("用户未登录");
+        }
+
+        return userId.defaultValue();
     }
 }
