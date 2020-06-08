@@ -27,6 +27,9 @@ public class ZchProperties {
     private JPush jPush = new JPush();
 
     @NotNull
+    private Oss oss = new Oss();
+
+    @NotNull
     private Enabled enabled = new Enabled();
 
     @Data
@@ -81,5 +84,17 @@ public class ZchProperties {
         private boolean jackson = true;
         private boolean convert = true;
         private boolean exception = true;
+    }
+
+    @Data
+    public static class Oss {
+        @NotBlank
+        private String url;
+        @NotBlank
+        private String bucket;
+        @NotBlank
+        private String key;
+        @NotBlank
+        private String secret;
     }
 }
