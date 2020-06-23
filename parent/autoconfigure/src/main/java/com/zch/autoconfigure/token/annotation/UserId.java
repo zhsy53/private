@@ -10,9 +10,9 @@ import java.lang.annotation.Target;
 @Target({ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UserId {
+    @Positive long GUEST_ID = Long.MAX_VALUE - 110;
+
     boolean required() default true;
 
     @Positive long defaultValue() default GUEST_ID;
-
-    @Positive long GUEST_ID = Long.MAX_VALUE - 110;
 }

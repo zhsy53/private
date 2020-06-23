@@ -51,7 +51,7 @@ public interface QueryUtils {
     @NotNull
     static OrderSpecifier<?> order(@NotNull EntityPathBase<?> entityPath, @Nullable String field, @Nullable Boolean desc) {
         var path = listPathFromEntityPath(entityPath).stream().filter(p -> p.getMetadata().getName().equals(ofNullable(field).orElse(OrderData.DEFAULT_FIELD))).findAny().orElseThrow();
-        return new OrderSpecifier(ofNullable(desc).orElse(false) ? Order.DESC : Order.ASC, path);
+        return new OrderSpecifier(ofNullable(desc).orElse(true) ? Order.DESC : Order.ASC, path);
     }
 
     @SuppressWarnings("unchecked")

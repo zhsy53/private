@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.zch</groupId>
         <artifactId>env</artifactId>
-        <version>2.9</version>
+        <version>3.0</version>
     </parent>
 
     <artifactId>inner</artifactId>
@@ -20,59 +20,59 @@
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>commons</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>persistence</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>commons-dom</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
 
             <!--starter-->
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-dozer</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-jpush</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-mq</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-querydsl</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-redis</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-swagger</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-token</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.zch</groupId>
                 <artifactId>starter-web</artifactId>
-                <version>2.9</version>
+                <version>3.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
